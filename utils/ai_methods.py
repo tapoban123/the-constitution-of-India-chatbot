@@ -1,3 +1,8 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
+
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from langchain.document_loaders import PyPDFDirectoryLoader
 from langchain_core.output_parsers import StrOutputParser
@@ -5,9 +10,6 @@ from langchain_core.prompts import PromptTemplate
 from langchain.vectorstores import Chroma
 from utils.secrets import LLM_API_KEY, GEMINI_MODELS
 from utils.models import DocumentDataModel
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 def get_LLM():
     llm = ChatGoogleGenerativeAI(
