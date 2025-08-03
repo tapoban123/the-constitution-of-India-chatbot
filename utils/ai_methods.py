@@ -1,7 +1,7 @@
-# __import__("pysqlite3")
-# import sys
+__import__("pysqlite3")
+import sys
 
-# sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
 
 
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
